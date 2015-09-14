@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="Django default" uuid="3e715432-5fbb-4ed3-a282-eb405020827b">
+    <database-info product="MySQL" version="5.6.21-log" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="books"/>
+    <table name="auth_group" schema="" catalog="books" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="80" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="auth_group_permissions_group_id_2bcad9a_fk_auth_group_id" table="auth_group_permissions" schema="" catalog="books" columns="group_id"/>
+      <exported-key name="auth_user_groups_group_id_7dd2be68_fk_auth_group_id" table="auth_user_groups" schema="" catalog="books" columns="group_id"/>
+      <index name="name" unique="true" columns="name"/>
+    </table>
+    <table name="auth_group_permissions" schema="" catalog="books" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auth_group_permissi_permission_id_6fb08b8d_fk_auth_permission_id" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="books" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="auth_group_permissions_group_id_2bcad9a_fk_auth_group_id" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="books" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="group_id" unique="true" columns="permission_id"/>
+      <index name="auth_group_permissi_permission_id_6fb08b8d_fk_auth_permission_id" unique="false" columns="permission_id"/>
+    </table>
+    <table name="auth_permission" schema="" catalog="books" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="codename" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auth_permissi_content_type_id_64a41361_fk_django_content_type_id" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="books" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="auth_group_permissi_permission_id_6fb08b8d_fk_auth_permission_id" table="auth_group_permissions" schema="" catalog="books" columns="permission_id"/>
+      <exported-key name="auth_user_user_permi_permission_id_7839a68_fk_auth_permission_id" table="auth_user_user_permissions" schema="" catalog="books" columns="permission_id"/>
+      <index name="content_type_id" unique="true" columns="codename"/>
+    </table>
+    <table name="auth_user" schema="" catalog="books" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="password" sqlType="VARCHAR" precision="128" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_login" sqlType="DATETIME" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="is_superuser" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="username" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="first_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="254" scale="0" nullable="false" jdbcType="12"/>
+      <column name="is_staff" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="is_active" sqlType="TINYINT" precision="3" scale="0" nullable="false" jdbcType="-6"/>
+      <column name="date_joined" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="auth_user_groups_user_id_4171574f_fk_auth_user_id" table="auth_user_groups" schema="" catalog="books" columns="user_id"/>
+      <exported-key name="auth_user_user_permissions_user_id_3199d9d8_fk_auth_user_id" table="auth_user_user_permissions" schema="" catalog="books" columns="user_id"/>
+      <exported-key name="django_admin_log_user_id_630587e8_fk_auth_user_id" table="django_admin_log" schema="" catalog="books" columns="user_id"/>
+      <index name="username" unique="true" columns="username"/>
+    </table>
+    <table name="auth_user_groups" schema="" catalog="books" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="group_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auth_user_groups_group_id_7dd2be68_fk_auth_group_id" columns="group_id" ref-table="auth_group" ref-schema="" ref-catalog="books" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="auth_user_groups_user_id_4171574f_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="books" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="group_id"/>
+      <index name="auth_user_groups_group_id_7dd2be68_fk_auth_group_id" unique="false" columns="group_id"/>
+    </table>
+    <table name="auth_user_user_permissions" schema="" catalog="books" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="permission_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="auth_user_user_permi_permission_id_7839a68_fk_auth_permission_id" columns="permission_id" ref-table="auth_permission" ref-schema="" ref-catalog="books" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="auth_user_user_permissions_user_id_3199d9d8_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="books" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="user_id" unique="true" columns="permission_id"/>
+      <index name="auth_user_user_permi_permission_id_7839a68_fk_auth_permission_id" unique="false" columns="permission_id"/>
+    </table>
+    <table name="books_author" schema="" catalog="books" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="first_name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="last_name" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="email" sqlType="VARCHAR" precision="254" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="books_book_authors_author_id_7125b4cc_fk_books_author_id" table="books_book_authors" schema="" catalog="books" columns="author_id"/>
+    </table>
+    <table name="books_book" schema="" catalog="books" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="title" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="publication_date" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="publisher_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="books_book_publisher_id_3e030ee_fk_books_publisher_id" columns="publisher_id" ref-table="books_publisher" ref-schema="" ref-catalog="books" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <exported-key name="books_book_authors_book_id_32473a58_fk_books_book_id" table="books_book_authors" schema="" catalog="books" columns="book_id"/>
+      <index name="books_book_2604cbea" unique="false" columns="publisher_id"/>
+    </table>
+    <table name="books_book_authors" schema="" catalog="books" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="book_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="author_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="books_book_authors_author_id_7125b4cc_fk_books_author_id" columns="author_id" ref-table="books_author" ref-schema="" ref-catalog="books" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="books_book_authors_book_id_32473a58_fk_books_book_id" columns="book_id" ref-table="books_book" ref-schema="" ref-catalog="books" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="book_id" unique="true" columns="author_id"/>
+      <index name="books_book_authors_author_id_7125b4cc_fk_books_author_id" unique="false" columns="author_id"/>
+    </table>
+    <table name="books_publisher" schema="" catalog="books" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="name" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="city" sqlType="VARCHAR" precision="60" scale="0" nullable="false" jdbcType="12"/>
+      <column name="state_province" sqlType="VARCHAR" precision="30" scale="0" nullable="false" jdbcType="12"/>
+      <column name="country" sqlType="VARCHAR" precision="50" scale="0" nullable="false" jdbcType="12"/>
+      <column name="website" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="books_book_publisher_id_3e030ee_fk_books_publisher_id" table="books_book" schema="" catalog="books" columns="publisher_id"/>
+    </table>
+    <table name="django_admin_log" schema="" catalog="books" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="action_time" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <column name="object_id" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="true" jdbcType="-1"/>
+      <column name="object_repr" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="action_flag" sqlType="SMALLINT UNSIGNED" precision="5" scale="0" nullable="false" jdbcType="5"/>
+      <column name="change_message" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="content_type_id" sqlType="INT" precision="10" scale="0" nullable="true" jdbcType="4"/>
+      <column name="user_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="django_admin__content_type_id_2dd9df2a_fk_django_content_type_id" columns="content_type_id" ref-table="django_content_type" ref-schema="" ref-catalog="books" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <foreign-key name="django_admin_log_user_id_630587e8_fk_auth_user_id" columns="user_id" ref-table="auth_user" ref-schema="" ref-catalog="books" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="django_admin__content_type_id_2dd9df2a_fk_django_content_type_id" unique="false" columns="content_type_id"/>
+      <index name="django_admin_log_user_id_630587e8_fk_auth_user_id" unique="false" columns="user_id"/>
+    </table>
+    <table name="django_content_type" schema="" catalog="books" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="app_label" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="model" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="auth_permissi_content_type_id_64a41361_fk_django_content_type_id" table="auth_permission" schema="" catalog="books" columns="content_type_id"/>
+      <exported-key name="django_admin__content_type_id_2dd9df2a_fk_django_content_type_id" table="django_admin_log" schema="" catalog="books" columns="content_type_id"/>
+      <index name="django_content_type_app_label_3c6b2b8e_uniq" unique="true" columns="app_label,model"/>
+    </table>
+    <table name="django_migrations" schema="" catalog="books" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="app" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR" precision="255" scale="0" nullable="false" jdbcType="12"/>
+      <column name="applied" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="django_session" schema="" catalog="books" type="TABLE">
+      <column name="session_key" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="session_data" sqlType="LONGTEXT" precision="2147483647" scale="0" nullable="false" jdbcType="-1"/>
+      <column name="expire_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="session_key"/>
+      <index name="django_session_de54fa62" unique="false" columns="expire_date"/>
+    </table>
+    <table name="polls_choice" schema="" catalog="books" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="choice_text" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="votes" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="question_id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <foreign-key name="polls_choice_question_id_d629361_fk_polls_question_id" columns="question_id" ref-table="polls_question" ref-schema="" ref-catalog="books" ref-columns="id" update-rule="3" delete-rule="3" deferrability="2"/>
+      <index name="polls_choice_7aa0f6ee" unique="false" columns="question_id"/>
+    </table>
+    <table name="polls_question" schema="" catalog="books" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="question_text" sqlType="VARCHAR" precision="200" scale="0" nullable="false" jdbcType="12"/>
+      <column name="pub_date" sqlType="DATETIME" precision="19" scale="0" nullable="false" jdbcType="93"/>
+      <primary-key name="PRIMARY" columns="id"/>
+      <exported-key name="polls_choice_question_id_d629361_fk_polls_question_id" table="polls_choice" schema="" catalog="books" columns="question_id"/>
+    </table>
+  </data-source>
+</component>
