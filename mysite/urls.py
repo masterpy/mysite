@@ -17,5 +17,6 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
+    url(r'^polls/',include('polls.urls')),#让主url可以连接到应用内部的urls
     url(r'^admin/', include(admin.site.urls)),
 ]
