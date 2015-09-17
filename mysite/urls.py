@@ -17,6 +17,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^polls/',include('polls.urls',namespace='polls')),#让主url可以连接到应用内部的urls
+    url(r'^polls/',include('django-cbb-polls.polls.urls',namespace='polls')),#让主url可以连接到应用内部的urls
+    #namesapce 命名空间，保证可以在templates下找到确定的模板，
     url(r'^admin/', include(admin.site.urls)),
 ]
